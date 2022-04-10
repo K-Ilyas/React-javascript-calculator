@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shojumaru&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#root #container-fluid {
+  width: 28%;
+  min-width: 300px;
+  margin: 80px 0 10px 0;
+}
+#root #container-fluid #author {
+  text-align: center;
+  margin-top: 10px;
+  font-family: "Nova Flat", cursive;
+  font-size: 1.1rem;
+}
+#root #container-fluid #author p {
+  margin-top: 5px;
+}
+#root #container-fluid #author p:nth-of-type(1) {
+  color: crimson;
+}
+#root #container-fluid #calculator {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: minmax(30px, auto) minmax(50px, auto) repeat(5, 60px);
+  grid-template-areas: "formula formula formula formula" "display display display display" "add divide multiply substract " "seven eight nine clear" "four five six clear" "one two three equals" "zero zero decimal equals";
+  padding: 8px 20px 8px 8px;
+  grid-gap: 4px;
+  border-radius: 15px;
+  border: 2px solid white;
+  background: linear-gradient(to bottom, rgba(130, 163, 212, 0.7), rgba(184, 251, 255, 0.7));
+}
+#root #container-fluid #calculator button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(130, 163, 212, 0.5), rgba(184, 251, 255, 0.5));
+  font-family: "Josefin Sans", sans-serif;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  border: 0.5px solid lightgray;
+}
+#root #container-fluid #calculator button:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+  color: #32b8b8;
+  box-shadow: 2px 2px 5px 1px #bebefd, -2px 2px 5px 1px #bebefd, 2px -2px 5px 1px #bebefd, -2px -2px 5px 1px #bebefd;
+}
+#root #container-fluid #calculator #nine {
+  grid-area: nine;
+}
+#root #container-fluid #calculator #eight {
+  grid-area: eight;
+}
+#root #container-fluid #calculator #seven {
+  grid-area: seven;
+}
+#root #container-fluid #calculator #six {
+  grid-area: six;
+}
+#root #container-fluid #calculator #five {
+  grid-area: five;
+}
+#root #container-fluid #calculator #four {
+  grid-area: four;
+}
+#root #container-fluid #calculator #three {
+  grid-area: three;
+}
+#root #container-fluid #calculator #two {
+  grid-area: two;
+}
+#root #container-fluid #calculator #one {
+  grid-area: one;
+}
+#root #container-fluid #calculator #zero {
+  grid-area: zero;
+}
+#root #container-fluid #calculator #decimal {
+  grid-area: decimal;
+}
+#root #container-fluid #calculator #add {
+  grid-area: add;
+  background-color: #bdf8f8;
+}
+#root #container-fluid #calculator #multiply {
+  grid-area: multiply;
+  background-color: #bdf8f8;
+}
+#root #container-fluid #calculator #substract {
+  grid-area: substract;
+  background-color: #bdf8f8;
+}
+#root #container-fluid #calculator #divide {
+  grid-area: divide;
+  background-color: #bdf8f8;
+}
+#root #container-fluid #calculator #equals {
+  grid-area: equals;
+  background-color: bisque;
+}
+#root #container-fluid #calculator #clear {
+  grid-area: clear;
+  background-color: bisque;
+}
+#root #container-fluid #calculator #formula-container {
+  grid-area: formula;
+  height: 100%;
+}
+#root #container-fluid #calculator #formula-container #formula {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  pointer-events: none;
+  border-left: 0.5px solid lightgray;
+  border-right: 0.5px solid lightgray;
+  text-align: right;
+  padding: 10px;
+  word-break: break-all;
+  border-radius: 8px 8px 0 0;
+  border-top: 0.5px solid lightgray;
+  background-color: rgba(130, 163, 212, 0.5);
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.9rem;
+  overflow: none;
+}
+#root #container-fluid #calculator #display-container {
+  grid-area: display;
+  margin-top: -4px;
+  height: 100%;
+}
+#root #container-fluid #calculator #display-container #display {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  pointer-events: none;
+  border-left: 0.5px solid lightgray;
+  border-right: 0.5px solid lightgray;
+  text-align: right;
+  color: white;
+  padding: 0 10px;
+  border-radius: 0 0 8px 8px;
+  border-bottom: 0.5px solid lightgray;
+  background: linear-gradient(to bottom, rgba(130, 163, 212, 0.5), rgba(184, 251, 255, 0.5));
+  font-size: 0.9rem;
+  font-family: "Orbitron", sans-serif;
+  justify-self: flex-start;
+}
+
+/*# sourceMappingURL=style.css.map */

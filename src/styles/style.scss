@@ -1,0 +1,184 @@
+// colors
+$color_gradient_first: hsla(144, 100%, 89%, 0.8);
+$color_gradient_second: hsla(42, 94%, 75%, 0.8);
+$color_gradient_third: hsla(358, 89%, 72%, 0.8);
+$box-shadow-color: rgb(190, 190, 253);
+// mixin box-shadow
+@mixin box-shadow($x, $y, $blur, $spread, $color) {
+    box-shadow: $x $y $blur $spread $color, -1 * $x $y $blur $spread $color, $x -1 * $y $blur $spread $color, -1 * $x -1 * $y $blur $spread $color;
+}
+
+@mixin input($target) {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    pointer-events: none;
+    border-left: 0.5px solid lightgray;
+    border-right: 0.5px solid lightgray;
+    text-align: right;
+    @if $target==top {
+        padding: 10px;
+        word-break: break-all;
+        border-radius: 8px 8px 0 0;
+        border-top: 0.5px solid lightgray;
+        background-color: hsla(216, 49%, 67%, 0.5);
+        font-family: "Orbitron", sans-serif;
+        font-size: 0.9rem;
+        overflow: none;
+    }
+    @else if $target==bottom {
+        color: white;
+        padding: 0 10px;
+        border-radius: 0 0 8px 8px;
+        border-bottom: 0.5px solid lightgray;
+        background: linear-gradient( to bottom, hsla(216, 49%, 67%, 0.5), hsla(183, 100%, 86%, 0.5));
+        font-size: 0.9rem;
+        font-family: "Orbitron", sans-serif;
+    }
+}
+
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shojumaru&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    #container-fluid {
+        width: 28%;
+        min-width: 300px;
+        margin: 80px 0 10px 0;
+        #author {
+            text-align: center;
+            margin-top: 10px;
+            font-family: "Nova Flat", cursive;
+            font-size: 1.1rem;
+            p {
+                margin-top: 5px;
+                &:nth-of-type(1) {
+                    color: crimson;
+                }
+            }
+        }
+        #calculator {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+            grid-template-rows: minmax(30px, auto) minmax(50px, auto) repeat(5, 60px);
+            grid-template-areas: "formula formula formula formula" "display display display display" "add divide multiply substract " "seven eight nine clear" "four five six clear" "one two three equals" "zero zero decimal equals";
+            padding: 8px 20px 8px 8px;
+            grid-gap: 4px;
+            border-radius: 15px;
+            border: 2px solid white;
+            background: linear-gradient( to bottom, hsla(216, 49%, 67%, 0.7), hsla(183, 100%, 86%, 0.7));
+            button {
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient( to bottom, hsla(216, 49%, 67%, 0.5), hsla(183, 100%, 86%, 0.5));
+                font-family: "Josefin Sans", sans-serif;
+                border: none;
+                border-radius: 8px;
+                font-size: 1.5rem;
+                border: 0.5px solid lightgray;
+                &:hover {
+                    transform: scale(1.1);
+                    opacity: 0.9;
+                    color: rgb(50, 184, 184);
+                    @include box-shadow(2px,
+                    2px,
+                    5px,
+                    1px,
+                    $box-shadow-color);
+                }
+            }
+            #nine {
+                grid-area: nine;
+            }
+            #eight {
+                grid-area: eight;
+            }
+            #seven {
+                grid-area: seven;
+            }
+            #six {
+                grid-area: six;
+            }
+            #five {
+                grid-area: five;
+            }
+            #four {
+                grid-area: four;
+            }
+            #three {
+                grid-area: three;
+            }
+            #two {
+                grid-area: two;
+            }
+            #one {
+                grid-area: one;
+            }
+            #zero {
+                grid-area: zero;
+            }
+            #decimal {
+                grid-area: decimal;
+            }
+            #add {
+                grid-area: add;
+                background-color: rgb(189, 248, 248);
+            }
+            #multiply {
+                grid-area: multiply;
+                background-color: rgb(189, 248, 248);
+            }
+            #substract {
+                grid-area: substract;
+                background-color: rgb(189, 248, 248);
+            }
+            #divide {
+                grid-area: divide;
+                background-color: rgb(189, 248, 248);
+            }
+            #equals {
+                grid-area: equals;
+                background-color: bisque;
+            }
+            #clear {
+                grid-area: clear;
+                background-color: bisque;
+            }
+            #formula-container {
+                grid-area: formula;
+                height: 100%;
+                #formula {
+                    @include input(top);
+                }
+            }
+            #display-container {
+                grid-area: display;
+                margin-top: -4px;
+                height: 100%;
+                #display {
+                    @include input(bottom);
+                    justify-self: flex-start;
+                }
+            }
+        }
+    }
+}
